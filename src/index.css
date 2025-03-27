@@ -1,0 +1,175 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 221 83% 96%;
+    --accent-foreground: 221 83% 33%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 221 83% 33%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body, #root {
+    @apply h-full;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Add smooth scrolling to page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Remove focus outline for mouse users, but keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Preserve focus outline for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white bg-opacity-70 backdrop-blur-lg border border-white border-opacity-40 shadow-lg;
+  }
+  
+  .page-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in;
+  }
+  
+  .form-input {
+    @apply bg-white bg-opacity-80 border border-slate-200 rounded-lg p-3 text-foreground outline-none transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary w-full;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-5 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-lg px-5 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-lg px-5 py-3 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-destructive focus:ring-opacity-50 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+/* Custom animation for page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translate3d(0, 15px, 0);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translate3d(0, -15px, 0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Loader animation */
+.loader {
+  @apply relative w-10 h-10;
+}
+
+.loader div {
+  @apply absolute top-0 w-2 h-2 rounded-full bg-primary animate-pulse-light;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.loader div:nth-child(1) {
+  --i: 1;
+  @apply left-0;
+}
+
+.loader div:nth-child(2) {
+  --i: 2;
+  @apply left-4;
+}
+
+.loader div:nth-child(3) {
+  --i: 3;
+  @apply left-8;
+}
