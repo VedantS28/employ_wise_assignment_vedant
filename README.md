@@ -6,6 +6,10 @@ A streamlined React application for user management built with React, TypeScript
 
 This project is a user management system built with React that integrates with the Reqres API to perform basic user management functions including authentication, listing, editing, and deleting users.
 
+## Live Demo
+
+Check out the live application: [EmployWise User Management System](https://employ-wise-assignment-vedant.vercel.app/)
+
 ## Features
 
 - **Authentication**: Secure login system with token-based authentication
@@ -31,14 +35,14 @@ This project is a user management system built with React that integrates with t
 
 ### Prerequisites
 
-- Node.js
+- Node.js   
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository
 ```sh
-git clone <repository-url>
+git clone https://github.com/VedantS28/employ_wise_assignment_vedant.git
 cd employwise-user-management
 ```
 
@@ -92,3 +96,4 @@ This application integrates with the Reqres API (https://reqres.in/) for all use
 │   └── main.tsx         # Application entry point
 └── README.md            # Project documentation
 ```
+
